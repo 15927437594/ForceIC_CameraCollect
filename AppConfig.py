@@ -14,6 +14,7 @@ class AppConfig:
         self.work_folder = '%s\\ForceIC_CameraCollect' % os.path.expanduser('~')
         self.exception_folder = '%s\\exception' % self.work_folder
         self.config_folder = '%s\\config' % self.work_folder
+        self.measure_log = '%s\\measure' % self.config_folder
 
     def load_global_config(self):
         if not os.path.exists(self.work_folder):
