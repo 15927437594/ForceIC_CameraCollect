@@ -4,17 +4,15 @@ user:Created by jid on 2020/12/29
 email:jid@hwtc.com.cn
 description:
 """
-import cgitb
 import logging
-import os
 import sys
 import time
 
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QApplication
 
-from AppConfig import app_config
-from LogUtil import logging_write
+from utils.AppConfig import app_config
+from utils.LogUtil import logging_write
 from view.view_control.MainWindow import MainWindow
 
 if __name__ == '__main__':

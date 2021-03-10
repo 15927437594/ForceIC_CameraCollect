@@ -9,7 +9,7 @@ import time
 
 from PyQt5.QtCore import pyqtSignal, QObject
 
-from SerialComm import SerialComm
+from comm.SerialComm import SerialComm
 
 
 class CameraCollect(QObject):

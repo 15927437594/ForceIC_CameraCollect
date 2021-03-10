@@ -13,7 +13,7 @@ import time
 from PyQt5.QtWidgets import QMainWindow
 from serial.tools import list_ports
 
-from CameraCollect import CameraCollect
+from utils.CameraCollect import CameraCollect
 from view.ui.MainFrame import Ui_MainWindow
 
 
@@ -22,6 +22,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
         self.setupUi(self)
+        self.setWindowTitle('ForceIC相机采集')
         self.start_btn.clicked.connect(self.start_collect)
         self.prev_btn.clicked.connect(self.show_prev_pattern)
         self.next_btn.clicked.connect(self.show_next_pattern)
@@ -67,11 +68,11 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.camera_collect.measure(self.show_count)
 
     def show_prev_pattern(self):
-        os.popen('adb shell am broadcast -a cn.com.hwtc.forceic_whitebalance_debug.prev')
+        os.popen('adb shell am broadcast -a cn.com.hwtc.forceic_whitebalance.prev')
 
     def show_next_pattern(self):
         logging.debug('show_next_pattern %d' % self.show_count)
-        os.popen('adb shell am broadcast -a cn.com.hwtc.forceic_whitebalance_debug.next')
+        os.popen('adb shell am broadcast -a cn.com.hwtc.forceic_whitebalance.next')
         if self.show_count < 26:
             self.show_count += 1
             # self.camera_collect.measure(self.show_count)
